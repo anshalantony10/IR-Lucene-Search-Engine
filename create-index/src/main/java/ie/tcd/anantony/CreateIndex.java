@@ -39,19 +39,19 @@ public class CreateIndex {
         for (String line : lines) {
             if (line.startsWith(".I")) {
                 if (contentBuilder.length() > 0) {
-                    doc.add(new TextField("content", contentBuilder.toString(), Field.Store.YES));
+                    doc.add(new TextField("id", contentBuilder.toString(), Field.Store.YES));
                     iwriter.addDocument(doc);
                     doc = new Document();
                     contentBuilder = new StringBuilder();
                 }
             } else if (line.startsWith(".T") && line.length() > 3) {
-                contentBuilder.append(line.substring(3).trim()).append(" ");
+                contentBuilder.append("Title", line.substring(3).trim()).append(" ");
             } else if (line.startsWith(".A") && line.length() > 3) {
                 doc.add(new StringField("author", line.substring(3).trim(), Field.Store.YES));
             } else if (line.startsWith(".B") && line.length() > 3) {
                 // You can add this field similarly if you want to index the bibliography
             } else if (line.startsWith(".W") && line.length() > 3) {
-                contentBuilder.append(line.substring(3).trim()).append(" ");
+                contentBuilder.append("content",line.substring(3).trim()).append(" ");
             } else {
                 contentBuilder.append(line).append(" ");
             }

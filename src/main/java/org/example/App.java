@@ -96,7 +96,7 @@ public class App {
                 return new StopAnalyzer();
             }
         }
-        return new StandardAnalyzer+();
+        return new StandardAnalyzer();
     }
     private static Similarity getSimilarity(String arg) {
         switch (arg) {

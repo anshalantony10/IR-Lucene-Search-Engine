@@ -2,7 +2,6 @@ package org.example;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.core.SimpleAnalyzer;
-import org.apache.lucene.analysis.core.StopAnalyzer;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
 import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -90,10 +89,6 @@ public class App {
             case "english": {
                 System.out.println("Using English Analyzer...");
                 return new EnglishAnalyzer();
-            }
-            case "stop": {
-                System.out.println("Using Stop Analyzer...");
-                return new StopAnalyzer();
             }
         }
         return new StandardAnalyzer();
